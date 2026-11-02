@@ -3,6 +3,7 @@ using System.IO;
 using CalamityMod;
 using CalamityMod.NPCs;
 using CalamityMod.NPCs.SlimeGod;
+using FargowiltasCrossmod.Core.Calamity;
 using CalamityMod.Projectiles.Boss;
 using FargowiltasCrossmod.Core;
 using FargowiltasCrossmod.Core.Calamity.Globals;
@@ -307,7 +308,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.SlimeGod
                             float speed = Main.rand.NextFloat(4, 6);
                             if (DLCUtils.HostCheck)
                             {
-                                Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center + dir * npc.height / 2, dir * speed, type, npc.GetProjectileDamage(type), 2f, Main.myPlayer);
+                                Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center + dir * npc.height / 2, dir * speed, type, CalamityProjectileDamage.GetProjectileDamage(npc, type), 2f, Main.myPlayer);
                             }
                         }
                     }
@@ -331,7 +332,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.SlimeGod
                             float speed = Main.rand.NextFloat(4, 6);
                             if (DLCUtils.HostCheck)
                             {
-                                Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center + dir * npc.height / 2, dir * speed, type, npc.GetProjectileDamage(type), 2f, Main.myPlayer);
+                                Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center + dir * npc.height / 2, dir * speed, type, CalamityProjectileDamage.GetProjectileDamage(npc, type), 2f, Main.myPlayer);
                             }
                         }
                     }
@@ -379,7 +380,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.SlimeGod
                 {
                     float speed = 5.5f;
                     int type = ModContent.ProjectileType<UnstableEbonianGlob>();
-                    int projectileDamage = npc.GetProjectileDamage(type);
+                    int projectileDamage = CalamityProjectileDamage.GetProjectileDamage(npc, type);
                     for (int i = -1; i < 2; i++)
                     {
                         Vector2 dir = (-Vector2.UnitY).RotatedBy(MathHelper.PiOver2 * i);
@@ -445,7 +446,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.SlimeGod
                     {
                         float speed = 2.6f;
                         int type = ModContent.ProjectileType<UnstableCrimulanGlob>();
-                        int projectileDamage = npc.GetProjectileDamage(type);
+                        int projectileDamage = CalamityProjectileDamage.GetProjectileDamage(npc, type);
                         const int GlobCount = 7;
                         for (int j = -1; j < 2; j += 2)
                         {
@@ -538,7 +539,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.SlimeGod
                     {
                         float speed = 2f;
                         int type = ModContent.ProjectileType<UnstableEbonianGlob>();
-                        int projectileDamage = npc.GetProjectileDamage(type);
+                        int projectileDamage = CalamityProjectileDamage.GetProjectileDamage(npc, type);
                         const int GlobCount = 12;
                         for (int i = 0; i < GlobCount; i++)
                         {
@@ -644,7 +645,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.SlimeGod
                         {
                             float speed = 2f;
                             int type = ModContent.ProjectileType<UnstableEbonianGlob>();
-                            int projectileDamage = npc.GetProjectileDamage(type);
+                            int projectileDamage = CalamityProjectileDamage.GetProjectileDamage(npc, type);
                             const int GlobCount = 12;
                             for (int i = 0; i < GlobCount; i++)
                             {
@@ -734,7 +735,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.SlimeGod
                                     Vector2 spikeDir = randomRot.ToRotationVector2().RotatedBy(MathHelper.TwoPi * (float)i / Spikes).RotatedByRandom(spikeRandomRot);
                                     float spikeDistance = npc.scale * MathHelper.Lerp(154f / 2, 100f / 2, (float)Math.Sin(spikeDir.ToRotation()));
                                     int type = ModContent.ProjectileType<CrimsonPaladinSpike>();
-                                    Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center + spikeDir * spikeDistance, Vector2.Zero, type, npc.GetProjectileDamage(type), 2f, Main.myPlayer, spikeDir.ToRotation(), spikeDistance);
+                                    Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center + spikeDir * spikeDistance, Vector2.Zero, type, CalamityProjectileDamage.GetProjectileDamage(npc, type), 2f, Main.myPlayer, spikeDir.ToRotation(), spikeDistance);
                                 }
                             }
                                 

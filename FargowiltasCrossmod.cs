@@ -57,7 +57,7 @@ public class FargowiltasCrossmod : Mod
     }
     */
     [JITWhenModsEnabled(ModCompatibility.Calamity.Name)]
-    public static ref List<int> pierceResistExceptionList => ref CalamityLists.pierceResistExceptionList;
+    public static List<int> pierceResistExceptionList { get; } = [];
     public override void PostSetupContent()
     {
         if (ModCompatibility.Calamity.Loaded)

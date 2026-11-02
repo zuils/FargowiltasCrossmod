@@ -166,7 +166,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.SkeletronPrime
                 else if (headDLC.AttackTimer < 90)
                 {
                     if (head.HasPlayerTarget)
-                        dir = dir.ToRotationVector2().RotateTowards(head.DirectionTo(Main.player[head.target].Center).ToRotation(), 0.05f).ToRotation();
+                        dir = LumUtils.RotateTowards(dir.ToRotationVector2(), head.DirectionTo(Main.player[head.target].Center).ToRotation(), 0.05f).ToRotation();
                 }
                 float offset = NPC.type switch
                 {

@@ -246,10 +246,10 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.ExoMechs.ArtemisAndApollo
         public static void DoBehavior_MachineGunLasers_ManageSounds(NPC npc)
         {
             if (AITimer == MachineGunLasers_AttackDelay - 20)
-                SoundEngine.PlaySound(GatlingLaser.FireSound with { Volume = 2f });
+                SoundEngine.PlaySound(new SoundStyle("CalamityMod/Sounds/Item/WeldingShoot") with { Volume = 2f });
 
             if (AITimer == MachineGunLasers_AttackDelay + 33)
-                GatlingLaserSoundLoop = LoopedSoundManager.CreateNew(GatlingLaser.FireLoopSound, () => !npc.active || SharedState.AIState != ExoTwinsAIState.MachineGunLasers);
+                GatlingLaserSoundLoop = LoopedSoundManager.CreateNew(new SoundStyle("CalamityMod/Sounds/Item/WeldingBurn"), () => !npc.active || SharedState.AIState != ExoTwinsAIState.MachineGunLasers);
             if (AITimer >= MachineGunLasers_AttackDuration - 45 || AITimer <= MachineGunLasers_AttackDelay)
                 GatlingLaserSoundLoop?.Stop();
 

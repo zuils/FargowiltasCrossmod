@@ -7,6 +7,7 @@ using CalamityMod.World;
 using FargowiltasCrossmod.Content.Calamity.Bosses.ExoMechs.Draedon.Dialogue;
 using FargowiltasCrossmod.Content.Calamity.Bosses.ExoMechs.SpecificManagers;
 using FargowiltasCrossmod.Core;
+using FargowiltasCrossmod.Core.Calamity;
 using FargowiltasCrossmod.Core.Calamity.Globals;
 using Luminance.Common.Utilities;
 using Luminance.Core.Graphics;
@@ -130,10 +131,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.ExoMechs.Draedon
                     {
                         CalamityWorld.DraedonMechToSummon = ExoMech.None;
 
-                        ModPacket packet = ModCompatibility.Calamity.Mod.GetPacket();
-                        packet.Write((byte)CalamityModMessageType.ExoMechSelection);
-                        packet.Write((int)CalamityWorld.DraedonMechToSummon);
-                        packet.Send();
+                        CalamityPacketCompat.SendExoMechSelection();
                     }
                 }
 

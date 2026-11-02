@@ -15,6 +15,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using CalamityMod.Items;
+using CalamityMod.Items.Placeables;
 using FargowiltasSouls.Content.Items.Accessories.Souls;
 using FargowiltasSouls.Content.Items.Ammos;
 using FargowiltasSouls.Content.Items.Weapons.FinalUpgrades;
@@ -122,7 +123,7 @@ namespace FargowiltasCrossmod.Core.Calamity
                 ItemType<ProfanedShard>(),
                 ItemType<ExoticPheromones>(),
                 ItemType<ProfanedCore>(),
-                ItemType<RuneofKos>(),
+                ItemType<MarkofProvidence>(),
                 ItemType<NecroplasmicBeacon>(),
                 ItemType<CosmicWorm>(),
                 ItemType<YharonEgg>(),
@@ -137,7 +138,7 @@ namespace FargowiltasCrossmod.Core.Calamity
             Items.AdamantiteExclude = itemFactory.CreateBoolSet(false,
                 ItemType<HeavenlyGale>(),
                 ItemType<TheSevensStriker>(),
-                ItemType<Phangasm>(),
+                ItemType<Riftburst>(),
                 ItemType<TheJailor>(),
                 ItemType<AetherfluxCannon>(),
                 ItemType<TheAnomalysNanogun>(),
@@ -251,7 +252,6 @@ namespace FargowiltasCrossmod.Core.Calamity
                 BuffType<Plague>(),
                 BuffType<SulphuricPoisoning>(),
                 BuffType<SagePoison>(),
-                BuffType<KamiFlu>(),
                 BuffType<CrushDepth>(),
                 BuffType<RiptideDebuff>(),
                 BuffType<BrainRot>(),
@@ -288,8 +288,8 @@ namespace FargowiltasCrossmod.Core.Calamity
             SetFactory projectileFactory = ProjectileID.Sets.Factory;
 
             Projectiles.TungstenExclude = projectileFactory.CreateBoolSet(false,
-                    ProjectileType<BladecrestOathswordProj>(),
-                    ProjectileType<OldLordClaymoreProj>()
+                    ProjectileType<BladecrestOathswordThrownBlade>(),
+                    ProjectileType<OldLordClaymoreHoldout>()
                 );
 
             Projectiles.MultipartShredder = projectileFactory.CreateBoolSet(false,

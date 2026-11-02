@@ -125,7 +125,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.ExoMechs.ComboAttacks
                 if (!npc.WithinRange(Target.Center, 540f))
                 {
                     float newSpeed = MathHelper.Lerp(npc.velocity.Length(), 29f, 0.05f);
-                    Vector2 newDirection = npc.velocity.RotateTowards(npc.AngleTo(Target.Center), 0.04f).SafeNormalize(Vector2.UnitY);
+                    Vector2 newDirection = LumUtils.RotateTowards(npc.velocity, npc.AngleTo(Target.Center), 0.04f).SafeNormalize(Vector2.UnitY);
                     npc.velocity = newDirection * newSpeed;
                 }
 

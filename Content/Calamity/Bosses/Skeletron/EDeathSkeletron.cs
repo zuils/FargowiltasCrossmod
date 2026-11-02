@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using CalamityMod;
+using FargowiltasCrossmod.Core.Calamity;
 using FargowiltasCrossmod.Core;
 using FargowiltasCrossmod.Core.Calamity.Globals;
 using FargowiltasCrossmod.Core.Common;
@@ -69,7 +70,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.Skeletron
 
                         float skullSpeed = 6f;
                         int type = ProjectileID.Skull;
-                        int damage = NPC.GetProjectileDamage(type);
+                        int damage = CalamityProjectileDamage.GetProjectileDamage(NPC, type);
 
                         float boltTargetXDist = Main.player[NPC.target].Center.X - NPC.Center.X;
                         float boltTargetYDist = Main.player[NPC.target].Center.Y - NPC.Center.Y;

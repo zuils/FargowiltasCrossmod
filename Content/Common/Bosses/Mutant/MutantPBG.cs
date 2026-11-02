@@ -156,7 +156,7 @@ namespace FargowiltasCrossmod.Content.Common.Bosses.Mutant
             vector13 += vector11 * ((ModNPC)this).NPC.scale + posOffset;
             spriteBatch.Draw(texture, vector13, (Rectangle?)rectangle, ((ModNPC)this).NPC.GetAlpha(drawColor), ((ModNPC)this).NPC.rotation, vector11, ((ModNPC)this).NPC.scale, spriteEffects, 0f);
             Color color37 = Color.Lerp(Color.White, Color.Red, 0.5f);
-            if (CalamityConfig.Instance.Afterimages)
+            if (CalamityClientConfig.Instance.Afterimages)
             {
                 for (int num155 = 1; num155 < num153; num155++)
                 {

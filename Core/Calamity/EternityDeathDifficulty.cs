@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -71,18 +72,24 @@ namespace FargowiltasCrossmod.Core.Calamity
         //TODO: add conditions to this description, for priority and Maso line
         public override LocalizedText ExpandedDescription => Language.GetText("Mods.FargowiltasCrossmod.EternityDeathDifficulty.ExpandedDescription");
 
+        public override Asset<Texture2D> TextureDisabled => _textureDisabled ??= ModContent.Request<Texture2D>("CalamityMod/UI/ModeIndicator/ModeIndicator_Death_Off");
+
+        public override Asset<Texture2D> OutlineTexture => _outlineTexture ??= ModContent.Request<Texture2D>("CalamityMod/UI/ModeIndicator/ModeIndicator_Death_Border");
+
+        public override SoundStyle ActivationSound => _activationSound ??= SoundID.Roar with { Pitch = -0.5f };
+
+        public override int BackBoneGameModeID => Main.getGoodWorld ? GameModeID.Expert : GameModeID.Master;
+
+        public override float DifficultyScale => 2f;
+
+        public override LocalizedText Name => Language.GetText("Mods.FargowiltasCrossmod.EternityDeathDifficulty.Name");
+
+        public override Color ChatTextColor => Color.DarkRed;
+
+        public override LocalizedText ShortDescription => Language.GetText("Mods.FargowiltasCrossmod.EternityDeathDifficulty.ShortDescription");
+
         public EternityDeathDifficulty()
         {
-            DifficultyScale = 2f;
-            Name = Language.GetText("Mods.FargowiltasCrossmod.EternityDeathDifficulty.Name");
-            ShortDescription = Language.GetText("Mods.FargowiltasCrossmod.EternityDeathDifficulty.ShortDescription");
-
-            ActivationTextKey = "Mods.FargowiltasCrossmod.EternityDeathDifficulty.Activation";
-            DeactivationTextKey = "Mods.FargowiltasCrossmod.EternityDeathDifficulty.Deactivation";
-
-            ActivationSound = SoundID.Roar with { Pitch = -0.5f };
-            ChatTextColor = Color.DarkRed;
-
             //MostAlternateDifficulties = 1;
             //Difficulties = new DifficultyMode[] { new NoDifficulty(), new RevengeanceDifficulty(), new DeathDifficulty(), this };
             //Difficulties = Difficulties.OrderBy(d => d.DifficultyScale).ToArray();
@@ -111,17 +118,17 @@ namespace FargowiltasCrossmod.Core.Calamity
             //}
         }
 
-        public override int FavoredDifficultyAtTier(int tier)
+        public override int[] FavoredDifficultyAtTier(int tier)
         {
             DifficultyMode[] tierList = DifficultyTiers[tier];
 
             for (int i = 0; i < tierList.Length; i++)
             {
                 if (tierList[i].Name.Value == "Death")
-                    return i;
+                    return [i];
             }
 
-            return 0;
+            return [0];
         }
     }
 }

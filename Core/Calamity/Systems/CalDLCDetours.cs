@@ -43,6 +43,7 @@ using FargowiltasCrossmod.Content.Calamity.Items.Accessories.Enchantments;
 using FargowiltasCrossmod.Content.Calamity.Items.Accessories.Souls;
 using FargowiltasCrossmod.Content.Calamity.Toggles;
 using CalamityMod.Systems;
+using CalamityMod.Systems.Collections;
 using CalamityMod.Enums;
 using Fargowiltas.Items.Vanity;
 using FargowiltasSouls.Content.Bosses.MutantBoss;
@@ -78,7 +79,8 @@ using CalamityMod.Tiles.Astral;
 using CalamityMod.Tiles.FurnitureMonolith;
 using CalamityMod.Tiles.Crags;
 using CalamityMod.Tiles.FurnitureAshen;
-using CalamityMod.Tiles.FurnitureEutrophic;
+using CalamityMod.Tiles.FurnitureNavystone.FurnitureAncientNavystone;
+using CalamityMod.Tiles.FurnitureNavystone;
 using CalamityMod.Tiles.SunkenSea;
 using FargowiltasCrossmod.Core.Calamity.Globals;
 using Terraria.GameContent;
@@ -327,7 +329,7 @@ namespace FargowiltasCrossmod.Core.Calamity.Systems
         {
             bool wasRevenge = CalamityWorld.revenge;
             bool wasBossRush = BossRushEvent.BossRushActive;
-            bool shouldDisableNPC = CalamityLists.DestroyerIDs.Contains(npc.type) || npc.type == NPCID.SkeletronPrime;
+            bool shouldDisableNPC = CalamityNPCTypeSets.Destroyer.Contains(npc.type) || npc.type == NPCID.SkeletronPrime;
             bool shouldDisable = CalDLCWorldSavingSystem.E_EternityRev && shouldDisableNPC;
 
             if (shouldDisable)
@@ -344,7 +346,7 @@ namespace FargowiltasCrossmod.Core.Calamity.Systems
             return result;
         }
 
-        private static readonly List<int> DisablePostDrawNPCS = new(CalamityLists.DestroyerIDs)
+        private static readonly List<int> DisablePostDrawNPCS = new(CalamityNPCTypeSets.Destroyer)
             {
             NPCID.WallofFleshEye,
             NPCID.Creeper,
@@ -372,11 +374,32 @@ namespace FargowiltasCrossmod.Core.Calamity.Systems
         #endregion
 
         #region NPCStats
+        private static readonly int[] BossScalingNPCs =
+        [
+            NPCID.EaterofWorldsHead,
+            NPCID.EaterofWorldsBody,
+            NPCID.EaterofWorldsTail,
+            NPCID.SkeletronHand,
+            NPCID.WallofFleshEye,
+            NPCID.TheDestroyerBody,
+            NPCID.TheDestroyerTail,
+            NPCID.PrimeCannon,
+            NPCID.PrimeLaser,
+            NPCID.PrimeVice,
+            NPCID.PrimeSaw,
+            NPCID.GolemHead,
+            NPCID.GolemHeadFree,
+            NPCID.GolemFistRight,
+            NPCID.GolemFistLeft,
+            NPCID.MoonLordHead,
+            NPCID.MoonLordHand
+        ];
+
         internal static void CalamityGetNPCDamage_Detour(Orig_CalamityGetNPCDamage orig, NPC npc)
         {
             // Prevent vanilla bosses and their segments from having their damage overriden by Calamity
             bool countsAsBoss = npc.boss || NPCID.Sets.ShouldBeCountedAsBoss[npc.type];
-            if (npc.type < NPCID.Count && (countsAsBoss || CalamityLists.bossHPScaleList.Contains(npc.type)))
+            if (npc.type < NPCID.Count && (countsAsBoss || Array.IndexOf(BossScalingNPCs, npc.type) >= 0))
                 return;
             orig(npc);
         }
@@ -1028,7 +1051,7 @@ namespace FargowiltasCrossmod.Core.Calamity.Systems
                 return playerName == "Pelusa";
             }
 
-            itemLoot.AddIf(getsRedBow, ModContent.ItemType<RedBow>());
+            itemLoot.AddIf(getsRedBow, ModContent.ItemType<GhostBracelet>());
 
             // Mishiro dev vanity
             // Name specific: "Amber" or "Mishiro"
@@ -1040,15 +1063,6 @@ namespace FargowiltasCrossmod.Core.Calamity.Systems
 
             itemLoot.AddIf(getsOracleHeadphones, ModContent.ItemType<OracleHeadphones>());
 
-            // Fabsol dev item
-            // Name specific: "Fabsol" or "Cirrus"
-            static bool getsCrystalHeartVodka(DropAttemptInfo info)
-            {
-                string playerName = info.player.name;
-                return playerName is "Fabsol" or "Cirrus";
-            }
-
-            itemLoot.AddIf(getsCrystalHeartVodka, ModContent.ItemType<CrystalHeartVodka>());
         }
         internal static void FargosSouls_DropDevianttsGift_Detour(Orig_FargosSouls_DropDevianttsGift orig, Player player)
         {
@@ -1089,7 +1103,7 @@ namespace FargowiltasCrossmod.Core.Calamity.Systems
             {
                 wallType = ModContent.WallType<SmoothNavystoneWall>();
                 tileType = ModContent.TileType<SmoothNavystone>();
-                platformStyle = ModContent.TileType<EutrophicPlatform>();
+                platformStyle = ModContent.TileType<AncientNavystonePlatform>();
                 moddedPlatform = true;
             }
         }
@@ -1108,7 +1122,7 @@ namespace FargowiltasCrossmod.Core.Calamity.Systems
                 doorStyle = ModContent.TileType<AbyssDoorClosed>();
                 chairStyle = ModContent.TileType<AbyssChair>();
                 tableStyle = ModContent.TileType<AbyssTable>();
-                torchStyle = ModContent.TileType<AbyssTorch>();
+                torchStyle = ModContent.TileType<VoidTorch>();
             }
             if (player.Calamity().ZoneAstral)
             {
@@ -1126,9 +1140,9 @@ namespace FargowiltasCrossmod.Core.Calamity.Systems
             }
             if (player.Calamity().ZoneSunkenSea)
             {
-                doorStyle = ModContent.TileType<EutrophicDoorClosed>();
-                chairStyle = ModContent.TileType<EutrophicChair>();
-                tableStyle = ModContent.TileType<EutrophicTable>();
+                doorStyle = ModContent.TileType<AncientNavystoneDoorClosed>();
+                chairStyle = ModContent.TileType<AncientNavystoneChair>();
+                tableStyle = ModContent.TileType<AncientNavystoneTable>();
                 torchStyle = ModContent.TileType<NavyPrismTorch>();
             }
         }

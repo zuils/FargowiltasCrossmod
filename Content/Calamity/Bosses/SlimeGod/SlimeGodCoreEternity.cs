@@ -16,6 +16,7 @@ using FargowiltasSouls.Core.Systems;
 using Luminance.Core.Graphics;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Localization;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -677,7 +678,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.SlimeGod
                     if (!DownedBossSystem.downedSlimeGod)
                     {
                         Color magenta = Color.Magenta;
-                        CalamityUtils.DisplayLocalizedText("Mods.CalamityMod.Status.Boss.SlimeGodRun", magenta);
+                        Main.NewText(Language.GetTextValue("Mods.CalamityMod.Status.Boss.SlimeGodRun"), magenta);
                     }
 
                     for (int num3 = 254; num3 >= 0; num3--)

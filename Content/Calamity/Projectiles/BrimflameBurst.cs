@@ -41,7 +41,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Projectiles
             Asset<Texture2D> t = TextureAssets.Projectile[Type];
             
            
-            Asset<Texture2D> fog = TextureAssets.Projectile[ModContent.ProjectileType<RancorFog>()];
+            Asset<Texture2D> fog = ModContent.Request<Texture2D>("CalamityMod/Particles/RancorFog");
             
             Main.spriteBatch.SetBlendState(BlendState.Additive);
             for (int i = 0; i < 5; i++)

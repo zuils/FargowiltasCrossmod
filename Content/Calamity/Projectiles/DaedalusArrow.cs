@@ -101,7 +101,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Projectiles
             Vector2 overallOffset = Projectile.Size * 0.5f;
             overallOffset += Projectile.velocity * 1.4f;
             int numPoints = 92;
-            PrimitiveRenderer.RenderTrail(Projectile.oldPos, new(PrimitiveWidthFunction, PrimitiveColorFunction, (_) => overallOffset, shader: GameShaders.Misc["CalamityMod:TrailStreak"]), numPoints);
+            PrimitiveRenderer.RenderTrail(Projectile.oldPos, new((completionRatio, _) => PrimitiveWidthFunction(completionRatio), (completionRatio, _) => PrimitiveColorFunction(completionRatio), (_, _) => overallOffset, shader: GameShaders.Misc["CalamityMod:TrailStreak"]), numPoints);
             return false;
         }
 

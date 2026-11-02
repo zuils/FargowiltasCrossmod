@@ -57,7 +57,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.ExoMechs.Projectiles
             float verticalBiasInterpolant = MathF.Abs(targetDirection.Y) - MathF.Abs(targetDirection.X);
             arcAngularVelocity += verticalBiasInterpolant * 0.019f;
 
-            Projectile.velocity = Projectile.velocity.RotateTowards(Projectile.AngleTo(target.Center), arcAngularVelocity);
+            Projectile.velocity = LumUtils.RotateTowards(Projectile.velocity, Projectile.AngleTo(target.Center), arcAngularVelocity);
             Projectile.velocity = (Projectile.velocity * 1.01f).ClampLength(0f, 11f);
 
             Time++;

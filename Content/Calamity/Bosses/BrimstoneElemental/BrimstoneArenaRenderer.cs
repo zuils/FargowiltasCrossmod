@@ -1,6 +1,7 @@
 ﻿using CalamityMod.Graphics.Renderers;
 using CalamityMod.NPCs.Providence;
 using CalamityMod.NPCs;
+using CalamityMod.Enums;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using System;
@@ -27,7 +28,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.BrimstoneElemental
     {
         #region Fields/Properties
 
-        public override DrawLayer Layer => DrawLayer.AfterEverything;
+        public override GeneralDrawLayer Layer => GeneralDrawLayer.AfterEverything;
 
         public static CalamityMod.NPCs.BrimstoneElemental.BrimstoneElemental Brimmy
         {

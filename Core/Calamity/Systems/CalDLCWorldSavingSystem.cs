@@ -23,7 +23,6 @@ namespace FargowiltasCrossmod.Core.Calamity.Systems
         public static bool downedEidolonWyrm = false;
         public static bool downedCloudElemental = false;
         public static bool downedEarthElemental = false;
-        public static bool downedArmoredDigger = false;
         public static bool EternityRev
         {
             get => eternityRev;
@@ -65,7 +64,6 @@ namespace FargowiltasCrossmod.Core.Calamity.Systems
             downedEidolonWyrm = false;
             downedCloudElemental = false;
             downedEarthElemental = false;
-            downedArmoredDigger = false;
             base.ClearWorld();
         }
         public override void NetSend(BinaryWriter writer)
@@ -82,7 +80,6 @@ namespace FargowiltasCrossmod.Core.Calamity.Systems
             downedFlags[3] = downedEidolonWyrm;
             downedFlags[4] = downedCloudElemental;
             downedFlags[5] = downedEarthElemental;
-            downedFlags[6] = downedArmoredDigger;
             writer.Write(flags);
             writer.Write(downedFlags);
         }
@@ -100,7 +97,6 @@ namespace FargowiltasCrossmod.Core.Calamity.Systems
             downedEidolonWyrm = downedFlags[3];
             downedCloudElemental = downedFlags[4];
             downedEarthElemental = downedFlags[5];
-            downedArmoredDigger = downedFlags[6];
         }
         public override void SaveWorldData(TagCompound tag)
         {
@@ -126,8 +122,6 @@ namespace FargowiltasCrossmod.Core.Calamity.Systems
                 downed.Add("downedCloudElemental");
             if (downedEarthElemental)
                 downed.Add("downedEarthElemental");
-            if (downedArmoredDigger)
-                downed.Add("downedArmoredDigger");
             tag["downed"] = downed;
 
             tag["droppedSummon"] = DroppedSummon;
@@ -145,7 +139,6 @@ namespace FargowiltasCrossmod.Core.Calamity.Systems
             downedEidolonWyrm = downed.Contains("downedEidolonWyrm");
             downedCloudElemental = downed.Contains("downedCloudElemental");
             downedEarthElemental = downed.Contains("downedEarthElemental");
-            downedArmoredDigger = downed.Contains("downedArmoredDigger");
 
             DroppedSummon = tag.GetList<int>("droppedSummon").ToList();
             /*

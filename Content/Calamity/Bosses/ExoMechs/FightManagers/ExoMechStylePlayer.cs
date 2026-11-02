@@ -1,4 +1,5 @@
 ﻿using CalamityMod;
+using CalamityMod.Systems.Collections;
 using FargowiltasCrossmod.Core;
 using FargowiltasCrossmod.Core.Calamity.Systems;
 using Luminance.Common.Utilities;
@@ -164,7 +165,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.ExoMechs.FightManagers
             {
                 int buffID = Player.buffType[i];
                 bool buffActive = Player.buffTime[i] >= 1;
-                bool isntDebuff = (!Main.debuff[buffID] || CalamityLists.alcoholList.Contains(buffID)) && !BuffID.Sets.IsATagBuff[buffID];
+                bool isntDebuff = (!Main.debuff[buffID] || CalamityBuffSets.DebuffDataset[buffID]?.AlcoholLevel > 0) && !BuffID.Sets.IsATagBuff[buffID];
 
                 if (buffActive && isntDebuff)
                     currentBuffCount++;

@@ -78,8 +78,6 @@ namespace FargowiltasCrossmod.Core.Calamity.ModPlayers
                 if (ModCompatibility.Calamity.Loaded) // Necessary here to sync in multiplayer
                 {
                     ModCompatibility.SoulsMod.Mod.Call("EternityVanillaBossBehaviour", CalDLCConfig.Instance.EternityPriorityOverRev);
-                    if (CalDLCConfig.Instance.EternityPriorityOverRev && WorldSavingSystem.EternityMode)
-                        CalamityMod.CalamityMod.ExternalFlag_DisableNonRevBossAI = true;
                 }
             }
             if (ModCompatibility.WrathoftheGods.Loaded)
@@ -183,8 +181,6 @@ namespace FargowiltasCrossmod.Core.Calamity.ModPlayers
                 calamityPlayer.SpongeShieldDurability = 0;
                 calamityPlayer.purity = false;
 
-                Player.ClearBuff(BuffType<DemonshadeSetDevilBuff>());
-                calamityPlayer.redDevil = false;
             }
 
             if (calamityPlayer.luxorsGift && Player.HeldItem != null && Player.HeldItem.type == ItemType<KamikazeSquirrelStaff>())

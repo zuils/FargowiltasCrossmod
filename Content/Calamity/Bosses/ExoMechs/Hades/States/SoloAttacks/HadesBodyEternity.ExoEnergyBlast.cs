@@ -118,7 +118,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.ExoMechs.Hades
                 NPC.Center = Vector2.Lerp(NPC.Center, Target.Center, redirectInterpolant * 0.05f);
 
                 Vector2 idealVelocity = NPC.SafeDirectionTo(outerHoverDestination) * MathHelper.Lerp(NPC.velocity.Length(), idealHoverSpeed, 0.135f);
-                NPC.velocity = NPC.velocity.RotateTowards(idealVelocity.ToRotation(), 0.045f);
+                NPC.velocity = LumUtils.RotateTowards(NPC.velocity, idealVelocity.ToRotation(), 0.045f);
                 NPC.velocity = NPC.velocity.MoveTowards(idealVelocity, AITimer / (float)ExoEnergyBlast_InitialRedirectTime * 8f);
 
                 // Stop hovering if close to the hover destination and prepare to move towards the target.
@@ -183,7 +183,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.ExoMechs.Hades
             // SPEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEN
             if (AITimer >= ExoEnergyBlast_InitialRedirectTime + ExoEnergyBlast_BlastDelay && AITimer < ExoEnergyBlast_InitialRedirectTime + ExoEnergyBlast_BlastDelay + HadesSuperLaserbeam.Lifetime)
             {
-                NPC.velocity = NPC.velocity.RotateTowards(NPC.AngleTo(Target.Center), ExoEnergyBlast_LaserTurnSpeed);
+                NPC.velocity = LumUtils.RotateTowards(NPC.velocity, NPC.AngleTo(Target.Center), ExoEnergyBlast_LaserTurnSpeed);
                 if (NPC.velocity.Length() >= 3f)
                     NPC.velocity *= 0.99f;
             }

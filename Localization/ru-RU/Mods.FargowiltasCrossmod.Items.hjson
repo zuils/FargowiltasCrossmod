@@ -179,15 +179,6 @@ WormFoodofKos: {
 	Tooltip: Призывает Штормового ткача
 }
 
-AbandonedRemote: {
-	DisplayName: Затерянный пульт управления
-	Tooltip:
-		'''
-		Призывает бронированного копателя
-		Можно использовать только под землёй
-		'''
-}
-
 ClamPearl: {
 	DisplayName: Жемчуг моллюска
 	Tooltip:

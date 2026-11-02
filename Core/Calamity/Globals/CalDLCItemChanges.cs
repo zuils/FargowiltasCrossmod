@@ -73,14 +73,9 @@ namespace FargowiltasCrossmod.Core.Calamity.Globals
             }
             if (item.type == ModContent.ItemType<DeathFruit>())
             {
-                if (cplayer.dFruit)
+                if (cplayer.sStrawberry)
                 {
-                    cplayer.dFruit = false;
-                    player.ConsumedLifeFruit = 20;
-                }
-                else if (cplayer.eBerry)
-                {
-                    cplayer.eBerry = false;
+                    cplayer.sStrawberry = false;
                     player.ConsumedLifeFruit = 20;
                 }
                 else if (cplayer.mFruit)
@@ -88,9 +83,9 @@ namespace FargowiltasCrossmod.Core.Calamity.Globals
                     cplayer.mFruit = false;
                     player.ConsumedLifeFruit = 20;
                 }
-                else if (cplayer.bOrange)
+                else if (cplayer.sTangerine)
                 {
-                    cplayer.bOrange = false;
+                    cplayer.sTangerine = false;
                     player.ConsumedLifeFruit = 20;
                 }
             }
@@ -202,7 +197,7 @@ namespace FargowiltasCrossmod.Core.Calamity.Globals
             {
                 if (player.AddEffect<ElementalQuiverEffect>(item))
                 {
-                    ModContent.GetInstance<ElementalQuiver>().UpdateAccessory(player, hideVisual);
+                    ModContent.GetInstance<PlanebreakersPouch>().UpdateAccessory(player, hideVisual);
                 }
                 if (player.AddEffect<QuiverofNihilityEffect>(item))
                 {
@@ -337,7 +332,7 @@ namespace FargowiltasCrossmod.Core.Calamity.Globals
                     tooltips[i].Text += " " + Language.GetTextValue("Conditions.InHardmode");
                 }
             }
-            if (item.type == ModContent.ItemType<Rock>())
+            if (item.type == ModContent.ItemType<CalamityMod.Items.Placeables.Rock>())
             {
                 tooltips.Add(new TooltipLine(Mod, "sqrl", $"[i:{ModContent.ItemType<TopHatSquirrelCaught>()}] [c/AAAAAA:" + Language.GetTextValue($"Mods.Fargowiltas.ExpandedTooltips.SoldBySquirrel") + $"]"));
             }

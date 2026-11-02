@@ -5,6 +5,7 @@ using CalamityMod.Items.Weapons.Melee;
 using CalamityMod.Items.Weapons.Ranged;
 using CalamityMod.Items.Weapons.Rogue;
 using CalamityMod.Items.Weapons.Summon;
+using CalamityMod.Items.Tools;
 using FargowiltasCrossmod.Core.Common;
 using FargowiltasSouls;
 using FargowiltasSouls.Content.Items.Accessories.Enchantments;
@@ -45,10 +46,10 @@ namespace FargowiltasCrossmod.Core.Calamity.Globals
 
             //Shadowspec items and such
             // Melee
-            if (item.type == ItemType<IridescentExcalibur>()) return 0.6f;
+            if (item.type == ItemType<Orderbringer>()) return 0.6f;
             if (item.type == ItemType<IllustriousKnives>()) return 1f;
             if (item.type == ItemType<NanoCore>() && item.DamageType.CountsAsClass(DamageClass.Melee)) return 2f;
-            if (item.type == ItemType<Azathoth>()) return 1f;
+            if (item.type == ItemType<Ozzathoth>()) return 1f;
             if (item.type == ItemType<RedSun>()) return 0.85f;
             if (item.type == ItemType<GaelsGreatsword>()) return 0.75f;
             // Ranged
@@ -61,7 +62,7 @@ namespace FargowiltasCrossmod.Core.Calamity.Globals
             if (item.type == ItemType<Eternity>()) return 0.7f;
             if (item.type == ItemType<TheDanceofLight>()) return 0.8f;
             if (item.type == ItemType<RainbowPartyCannon>()) return 0.7f;
-            if (item.type == ItemType<Fabstaff>()) return 1.2f;
+            if (item.type == ItemType<Sylvestaff>()) return 1.2f;
             // Summoner
             if (item.type == ItemType<AngelicAlliance>()) return 0.2f;
             if (item.type == ItemType<FlamsteedRing>()) return 0.45f;

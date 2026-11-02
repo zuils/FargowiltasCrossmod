@@ -64,7 +64,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.ExoMechs.Draedon.Dialogue
                 if (GameCulture.FromCultureName(GameCulture.CultureName.Russian).IsActive)
                     return FontAssets.MouseText.Value;
 
-                return CodebreakerUI.DialogFont;
+                return FontAssets.MouseText.Value;
             }
         }
 

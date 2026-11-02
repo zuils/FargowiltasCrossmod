@@ -4,6 +4,7 @@ using CalamityMod.NPCs.SupremeCalamitas;
 using CalamityMod.NPCs;
 using CalamityMod.Particles;
 using CalamityMod;
+using FargowiltasCrossmod.Core.Calamity;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -108,7 +109,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.CalamitasClone
                 Projectile.localAI[0] = 1f;
 
                 if (Projectile.ai[0] == 0f)
-                    Projectile.damage = Projectile.GetProjectileDamage(ModContent.NPCType<CalamityMod.NPCs.CalClone.CalamitasClone>());
+                    Projectile.damage = CalamityProjectileDamage.GetProjectileDamage(Projectile, ModContent.NPCType<CalamityMod.NPCs.CalClone.CalamitasClone>());
             }
 
             Lighting.AddLight(Projectile.Center, 0.75f * Projectile.Opacity, 0f, 0f);
@@ -136,7 +137,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.CalamitasClone
             {
                 if (Main.npc[CalamityGlobalNPC.SCal].active)
                 {
-                    if (Main.npc[CalamityGlobalNPC.SCal].ModNPC<SupremeCalamitas>().cirrus)
+                    if (Main.npc[CalamityGlobalNPC.SCal].ModNPC<SupremeCalamitas>().permafrost)
                         lightColor.B = (byte)(255 * Projectile.Opacity);
                 }
             }

@@ -67,7 +67,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.Twins
                 {
                     SoundEngine.PlaySound(SoundID.Item33, NPC.Center);
                     if (DLCUtils.HostCheck)
-                        Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<ScavengerLaser>(), FargowiltasSouls.FargoSoulsUtil.ScaledProjectileDamage((int)(NPC.damage * 0.75f)), 0);
+                        Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<HomingLaserDart>(), FargowiltasSouls.FargoSoulsUtil.ScaledProjectileDamage((int)(NPC.damage * 0.75f)), 0);
                 }
                 if (timer >= dashTime - 20)
                 {

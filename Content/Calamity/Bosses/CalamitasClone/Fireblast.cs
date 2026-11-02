@@ -87,7 +87,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.CalamitasClone
                 {
                     Vector2 toPlayer = Projectile.DirectionTo(Main.player[target].Center);
 
-                    Projectile.velocity = Projectile.velocity.RotateTowards(toPlayer.ToRotation(), 0.008f);
+                    Projectile.velocity = LumUtils.RotateTowards(Projectile.velocity, toPlayer.ToRotation(), 0.008f);
 
                     float diff = FargoSoulsUtil.RotationDifference(Projectile.velocity, toPlayer);
                     if (Math.Abs(diff) > MathHelper.PiOver2 && Projectile.timeLeft > 10)

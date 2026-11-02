@@ -16,6 +16,7 @@ using Extensions;
 using FargowiltasCrossmod.Assets.Particles;
 using FargowiltasCrossmod.Content.Calamity.Bosses.BrimstoneElemental;
 using FargowiltasCrossmod.Core;
+using FargowiltasCrossmod.Core.Calamity;
 using FargowiltasCrossmod.Core.Calamity.Globals;
 using FargowiltasCrossmod.Core.Common;
 using FargowiltasSouls;
@@ -390,7 +391,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.HiveMind
 
                 CalamityBurrow(NPC, target);
 
-                if (((!NPC.AnyNPCs(ModContent.NPCType<HiveBlob>()) && !NPC.AnyNPCs(ModContent.NPCType<HiveBlob2>())) || timer > 60 * 21) && burrowTimer > 0)
+                if ((!NPC.AnyNPCs(ModContent.NPCType<HiveBlob>()) || timer > 60 * 21) && burrowTimer > 0)
                 {
                     SoundEngine.PlaySound(roar with { Pitch = 0.5f }, NPC.Center);
                     Phase = 2;
@@ -410,13 +411,13 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.HiveMind
 
                     if (NPC.life > NPC.lifeMax * 0.75f)
                     {
-                        int aliveBlobs = NPC.CountNPCS(ModContent.NPCType<HiveBlob>()) + NPC.CountNPCS(ModContent.NPCType<HiveBlob2>());
+                        int aliveBlobs = NPC.CountNPCS(ModContent.NPCType<HiveBlob>());
                         float damageMult = 1 - LumUtils.Saturate(aliveBlobs / BlobEternity.P1Blobs);
                         NPC.SimpleStrikeNPC((int)Math.Round(damageMult * (NPC.life - (NPC.lifeMax * 0.75f))), 1);
                     }
                     foreach (NPC n in Main.npc)
                     {
-                        if ((n.type == ModContent.NPCType<HiveBlob>() || n.type == ModContent.NPCType<HiveBlob2>()) && n.ai[0] == NPC.whoAmI)
+                        if (n.type == ModContent.NPCType<HiveBlob>() && n.ai[0] == NPC.whoAmI)
                         {
                             n.StrikeInstantKill();
                         }
@@ -1115,7 +1116,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.HiveMind
                                         if (Main.netMode != NetmodeID.MultiplayerClient)
                                         {
                                             int type = ModContent.ProjectileType<ShadeNimbusHostile>();
-                                            int damage = NPC.GetProjectileDamage(type);
+                                            int damage = CalamityProjectileDamage.GetProjectileDamage(NPC, type);
                                             Vector2 cloudSpawnPos = new Vector2(NPC.position.X + Main.rand.Next(NPC.width), NPC.position.Y + Main.rand.Next(NPC.height));
                                             Vector2 randomVelocity = Vector2.Zero;
                                             int p = Projectile.NewProjectile(NPC.GetSource_FromAI(), cloudSpawnPos, randomVelocity, type, damage, 0, Main.myPlayer, 11f);

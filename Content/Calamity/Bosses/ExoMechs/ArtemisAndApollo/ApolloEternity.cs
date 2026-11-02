@@ -296,7 +296,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.ExoMechs.ArtemisAndApollo
             NPC.defense = CommonExoTwinFunctionalities.Defense;
             NPC.DR_NERD(CommonExoTwinFunctionalities.DamageReductionFactor);
 
-            float healthBoostFactor = CalamityConfig.Instance.BossHealthBoost * 0.01f + 1f;
+            float healthBoostFactor = CalamityServerConfig.Instance.BossHealthBoost * 0.01f + 1f;
             NPC.LifeMaxNERB(1250000, 1495000, 650000);
             NPC.lifeMax = (int)MathF.Round(NPC.lifeMax * healthBoostFactor);
 
@@ -541,7 +541,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.ExoMechs.ArtemisAndApollo
             if (ExoTwinsStates.DoBehavior_EnterSecondPhase_ApolloIsProtectingArtemis(this))
             {
                 modifiers.FinalDamage *= ExoTwinsStates.EnterSecondPhase_ApolloDamageProtectionFactor;
-                if (!CalamityLists.projectileDestroyExceptionList.Contains(projectile.type))
+                if (!ProjectileDestroyExceptionsList.IsDestroyException(projectile))
                     projectile.active = false;
             }
         }

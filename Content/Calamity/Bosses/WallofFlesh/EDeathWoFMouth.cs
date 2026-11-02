@@ -1,4 +1,5 @@
 ﻿using CalamityMod;
+using FargowiltasCrossmod.Core.Calamity;
 using FargowiltasCrossmod.Core;
 using FargowiltasCrossmod.Core.Calamity.Globals;
 using FargowiltasCrossmod.Core.Common;
@@ -31,7 +32,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.WallofFlesh
                     Vector2 projectileVelocity = (Main.player[NPC.target].Center - NPC.Center).SafeNormalize(Vector2.UnitY) * NPC.velocity.Length();
                     Vector2 projectileSpawn = NPC.Center + projectileVelocity.SafeNormalize(Vector2.UnitY) * 50f;
 
-                    int damage = NPC.GetProjectileDamage(ProjectileID.DemonSickle);
+                    int damage = CalamityProjectileDamage.GetProjectileDamage(NPC, ProjectileID.DemonSickle);
                     int proj = Projectile.NewProjectile(NPC.GetSource_FromAI(), projectileSpawn, projectileVelocity, ProjectileID.DemonSickle, damage, 0f, Main.myPlayer, 0f, projectileVelocity.Length() * 3f);
                     Main.projectile[proj].timeLeft = 600;
                     Main.projectile[proj].tileCollide = false;

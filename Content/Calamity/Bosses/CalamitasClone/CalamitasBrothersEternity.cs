@@ -127,7 +127,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.CalamitasClone
             NPC.DR_NERD(0.225f);
             int hp = 16000;
             NPC.LifeMaxNERB(hp, hp, 80000);
-            double HPBoost = CalamityConfig.Instance.BossHealthBoost * 0.01;
+            double HPBoost = CalamityServerConfig.Instance.BossHealthBoost * 0.01;
             NPC.lifeMax += (int)(NPC.lifeMax * HPBoost);
         }
         public override void SendExtraAI(BitWriter bitWriter, BinaryWriter binaryWriter)
@@ -443,7 +443,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.CalamitasClone
 
                 // rotation
                 float idealAngle = NPC.DirectionTo(Target.Center).ToRotation() + MathHelper.PiOver2 * 1.2f * sweepDir;
-                NPC.rotation = NPC.rotation.ToRotationVector2().RotateTowards(idealAngle - MathHelper.PiOver2, 0.1f).ToRotation();
+                NPC.rotation = LumUtils.RotateTowards(NPC.rotation.ToRotationVector2(), idealAngle - MathHelper.PiOver2, 0.1f).ToRotation();
 
                 // movement
                 Vector2 desiredPos = Target.Center + Target.DirectionTo(NPC.Center) * idealDistance;

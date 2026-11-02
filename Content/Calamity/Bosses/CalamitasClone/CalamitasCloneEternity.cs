@@ -122,7 +122,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.CalamitasClone
             NPC.DR_NERD(0.15f);
             int hp = 25000;
             NPC.LifeMaxNERB(hp, hp, 520000);
-            double HPBoost = CalamityConfig.Instance.BossHealthBoost * 0.01;
+            double HPBoost = CalamityServerConfig.Instance.BossHealthBoost * 0.01;
             NPC.lifeMax += (int)(NPC.lifeMax * HPBoost);
         }
 
@@ -405,7 +405,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.CalamitasClone
 
             Vector2 offset = offsetDir.ToRotationVector2() * distance;
 
-            offset = offset.RotateTowards(-Vector2.UnitY.ToRotation(), 0.15f);
+            offset = LumUtils.RotateTowards(offset, -Vector2.UnitY.ToRotation(), 0.15f);
             pos += offset;
             float speed = 0.65f;
             if (Target.Center.Y < NPC.Center.Y - 50)
@@ -455,7 +455,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.CalamitasClone
             Vector2 dir = CalculateAngle(targetX);
 
             CustomRotation = 1;
-            NPC.rotation = NPC.rotation.ToRotationVector2().RotateTowards(dir.ToRotation() - MathHelper.PiOver2, 0.05f).ToRotation();
+            NPC.rotation = LumUtils.RotateTowards(NPC.rotation.ToRotationVector2(), dir.ToRotation() - MathHelper.PiOver2, 0.05f).ToRotation();
             //NPC.rotation = Vector2.Lerp(NPC.rotation.ToRotationVector2(), dir.RotatedBy(-MathHelper.PiOver2), 0.001f).ToRotation();
 
             int startup = 60;
@@ -695,7 +695,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.CalamitasClone
             pos -= offset;
 
             if (Math.Abs(FargoSoulsUtil.RotationDifference(offset, -Vector2.UnitY)) > MathHelper.PiOver2 * 0.7f)
-                offset = offset.RotateTowards(-Vector2.UnitY.ToRotation(), 0.07f);
+                offset = LumUtils.RotateTowards(offset, -Vector2.UnitY.ToRotation(), 0.07f);
             pos += offset;
             float speed = 0.6f;
             if (Target.Distance(NPC.Center) < distance)

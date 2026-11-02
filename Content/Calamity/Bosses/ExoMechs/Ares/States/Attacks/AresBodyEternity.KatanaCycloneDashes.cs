@@ -147,7 +147,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.ExoMechs.Ares
                 NPC.Opacity = LumUtils.InverseLerp(0f, 7f, AITimer - KatanaCycloneDashes_RedirectTime - KatanaCycloneDashes_FlyAwayTime);
 
                 float rotateToPlayerInterpolant = LumUtils.InverseLerp(12f, 22f, MathF.Abs(Target.velocity.Y));
-                NPC.velocity = NPC.velocity.RotateTowards(NPC.AngleTo(Target.Center), rotateToPlayerInterpolant * KatanaCycloneDashes_MaxRotationalVelocity);
+                NPC.velocity = LumUtils.RotateTowards(NPC.velocity, NPC.AngleTo(Target.Center), rotateToPlayerInterpolant * KatanaCycloneDashes_MaxRotationalVelocity);
 
                 if (AITimer >= KatanaCycloneDashes_RedirectTime + KatanaCycloneDashes_FlyAwayTime + 24 && !NPC.WithinRange(Target.Center, KatanaCycloneDashes_MinimumRestartDistance))
                 {

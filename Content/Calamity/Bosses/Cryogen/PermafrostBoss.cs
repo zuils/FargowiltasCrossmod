@@ -44,7 +44,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.Cryogen
         {
             base.SetStaticDefaults();
 
-            Main.npcFrameCount[Type] = Main.npcFrameCount[ModContent.NPCType<DILF>()];
+            Main.npcFrameCount[Type] = Main.npcFrameCount[ModContent.NPCType<Archmage>()];
 
         }
         public override void SetDefaults()
@@ -193,7 +193,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.Cryogen
         {
             if (!DLCUtils.HostCheck)
                 return;
-            int n = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<DILF>());
+            int n = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Archmage>());
             if (n != Main.maxNPCs)
             {
                 Main.npc[n].homeless = true;
@@ -217,7 +217,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.Cryogen
         }
         public override void OnSpawn(IEntitySource source)
         {
-            int n = NPC.FindFirstNPC(ModContent.NPCType<DILF>());
+            int n = NPC.FindFirstNPC(ModContent.NPCType<Archmage>());
             if (n != -1 && n != Main.maxNPCs)
             {
                 //NPC.Bottom = Main.npc[n].Bottom;
@@ -242,7 +242,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.Cryogen
                 Main.StopRain();
             Main.LocalPlayer.buffImmune[ModContent.BuffType<HypothermiaBuff>()] = true;
 
-            int n = NPC.FindFirstNPC(ModContent.NPCType<DILF>());
+            int n = NPC.FindFirstNPC(ModContent.NPCType<Archmage>());
             if (n != -1 && n != Main.maxNPCs)
             {
                 Main.npc[n].life = 0;

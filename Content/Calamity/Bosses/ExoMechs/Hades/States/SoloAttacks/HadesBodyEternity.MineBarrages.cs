@@ -50,7 +50,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.ExoMechs.Hades
                 if (!NPC.WithinRange(Target.Center, 600f))
                 {
                     float newSpeed = MathHelper.Lerp(NPC.velocity.Length(), 26f, 0.09f);
-                    Vector2 newDirection = NPC.velocity.RotateTowards(NPC.AngleTo(Target.Center), 0.03f).SafeNormalize(Vector2.UnitY);
+                    Vector2 newDirection = LumUtils.RotateTowards(NPC.velocity, NPC.AngleTo(Target.Center), 0.03f).SafeNormalize(Vector2.UnitY);
                     NPC.velocity = newDirection * newSpeed;
                 }
 

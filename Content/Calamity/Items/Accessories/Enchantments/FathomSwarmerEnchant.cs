@@ -57,7 +57,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Items.Accessories.Enchantments
             recipe.AddIngredient<FathomSwarmerBoots>(1);
             recipe.AddIngredient<DreadmineStaff>(1);
             recipe.AddIngredient<OrthoceraShell>(1);
-            recipe.AddIngredient<LumenousAmulet>(1);
+            recipe.AddIngredient<DiamondOfTheDeep>(1);
             recipe.AddTile(TileID.CrystalBall);
             recipe.Register();
         }
