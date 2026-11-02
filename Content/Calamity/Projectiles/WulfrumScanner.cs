@@ -62,7 +62,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Projectiles
             int height = t.Height / Main.projFrames[Type];
             int width = t.Width;
             Main.EntitySpriteDraw(t, Projectile.Center - Main.screenPosition, new Rectangle(0, height * Projectile.frame, width, height), lightColor, Projectile.rotation, new Vector2(32, 34) * 0.5f, Projectile.scale, Projectile.spriteDirection == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally);
-            Asset<Texture2D> line = TextureAssets.Extra[178];
+            Asset<Texture2D> line = TextureAssets.Extra[ExtrasID.FairyQueenLance];
             
             if (Projectile.ai[1] < 0 || Main.npc[(int)Projectile.ai[1]] == null || !Main.npc[(int)Projectile.ai[1]].active )
             {

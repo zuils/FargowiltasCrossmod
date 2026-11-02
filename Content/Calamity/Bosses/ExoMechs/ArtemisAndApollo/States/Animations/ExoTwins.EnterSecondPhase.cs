@@ -316,7 +316,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.ExoMechs.ArtemisAndApollo
         public static void CreateForcefieldHologramDust(NPC apollo)
         {
             Vector2 hologramDustPosition = apollo.Center + (apollo.rotation + Main.rand.NextGaussian(0.42f)).ToRotationVector2() * Main.rand.NextFloat(60f, 185f);
-            Dust hologramDust = Dust.NewDustPerfect(hologramDustPosition, 261);
+            Dust hologramDust = Dust.NewDustPerfect(hologramDustPosition, DustID.AncientLight);
             hologramDust.velocity = apollo.SafeDirectionTo(hologramDustPosition).RotatedBy(Main.rand.NextFromList(-1f, 1f) * MathHelper.PiOver2) * Main.rand.NextFloatDirection() * 5f;
             hologramDust.color = Color.Lerp(Color.Lime, Color.Teal, Main.rand.NextFloat());
             hologramDust.scale *= 0.85f;

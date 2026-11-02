@@ -206,6 +206,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.Cryogen
             }
             
         }
+        [Obsolete]
         public override void BossLoot(ref string name, ref int potionType)
         {
             potionType = ItemID.GreaterHealingPotion;

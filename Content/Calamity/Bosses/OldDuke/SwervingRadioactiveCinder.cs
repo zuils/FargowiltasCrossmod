@@ -84,7 +84,7 @@ public class SwervingRadioactiveCinder : ModProjectile, IPixelatedPrimitiveRende
             {
                 Vector2 fireSpawnPosition = Projectile.Center + Main.rand.NextVector2Circular(12f, 12f) * Projectile.scale;
                 Vector2 fireVelocity = Main.rand.NextVector2Circular(4f, 4f) * MathF.Pow(Projectile.scale, 0.61f);
-                Dust nuclearFire = Dust.NewDustPerfect(fireSpawnPosition, 261, fireVelocity * MathF.Pow(Projectile.scale * 1.5f, 0.9f));
+                Dust nuclearFire = Dust.NewDustPerfect(fireSpawnPosition, DustID.AncientLight, fireVelocity * MathF.Pow(Projectile.scale * 1.5f, 0.9f));
                 nuclearFire.color = Color.Lerp(Color.Lime, Color.Yellow, Main.rand.NextFloat(0.2f, 0.8f));
                 nuclearFire.noGravity = true;
                 nuclearFire.scale *= Main.rand.NextFloat(0.7f, 1.15f);

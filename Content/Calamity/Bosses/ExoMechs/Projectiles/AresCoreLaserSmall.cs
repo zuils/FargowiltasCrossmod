@@ -64,7 +64,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.ExoMechs.Projectiles
 
             if (Main.rand.NextBool(12))
             {
-                Dust spark = Dust.NewDustPerfect(Projectile.Center + Main.rand.NextVector2Circular(10f, 10f), 261);
+                Dust spark = Dust.NewDustPerfect(Projectile.Center + Main.rand.NextVector2Circular(10f, 10f), DustID.AncientLight);
                 spark.velocity = Main.rand.NextVector2Circular(1.5f, 1.5f);
                 spark.scale = 1.05f;
                 spark.color = Color.Lerp(Color.Crimson, Color.OrangeRed, Main.rand.NextFloat());

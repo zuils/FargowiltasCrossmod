@@ -98,7 +98,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.CalamitasClone
 
                 Projectile.scale = 0.85f;
 
-                Dust trailDust = Dust.NewDustPerfect(Projectile.Center + Main.rand.NextVector2Circular(4, 4), 182);
+                Dust trailDust = Dust.NewDustPerfect(Projectile.Center + Main.rand.NextVector2Circular(4, 4), DustID.TheDestroyer);
                 trailDust.noGravity = true;
                 trailDust.velocity = (-Projectile.velocity * 0.5f) * Main.rand.NextFloat(0.1f, 0.9f);
                 trailDust.scale = Main.rand.NextFloat(0.2f, 0.6f);

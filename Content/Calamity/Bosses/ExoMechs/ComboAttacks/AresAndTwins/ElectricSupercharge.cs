@@ -226,7 +226,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.ExoMechs.ComboAttacks
 
                     for (int i = 0; i < 15; i++)
                     {
-                        Dust electricity = Dust.NewDustPerfect(cannonEnd + Main.rand.NextVector2Circular(10f, 10f), 226);
+                        Dust electricity = Dust.NewDustPerfect(cannonEnd + Main.rand.NextVector2Circular(10f, 10f), DustID.Electric);
                         electricity.velocity = aimDirection * 10.5f + Main.rand.NextVector2Circular(3.6f, 3.6f);
                         electricity.scale = Main.rand.NextFloat(0.8f, 1.25f);
                         electricity.noGravity = true;

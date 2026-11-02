@@ -239,7 +239,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.ExoMechs.ArtemisAndApollo
                     float speedInterpolant = Main.rand.NextFloat();
                     Vector2 impactDustSpawnPosition = npc.Center + Main.rand.NextVector2Circular(38f, 38f);
                     Vector2 impactDustVelocity = npc.velocity.SafeNormalize(Vector2.UnitY).RotatedByRandom(0.6f) * MathHelper.Lerp(8f, 46f, speedInterpolant);
-                    Dust impactDust = Dust.NewDustPerfect(impactDustSpawnPosition, 264, impactDustVelocity);
+                    Dust impactDust = Dust.NewDustPerfect(impactDustSpawnPosition, DustID.PortalBoltTrail, impactDustVelocity);
                     impactDust.noLight = true;
                     impactDust.noGravity = speedInterpolant >= 0.5f && Main.rand.NextBool();
                     impactDust.color = Color.Orange;

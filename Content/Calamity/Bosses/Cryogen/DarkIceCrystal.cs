@@ -51,7 +51,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.Cryogen
         }
         public override bool PreDraw(ref Color lightColor)
         {
-            Asset<Texture2D> line = TextureAssets.Extra[178];
+            Asset<Texture2D> line = TextureAssets.Extra[ExtrasID.FairyQueenLance];
             Asset<Texture2D> t = TextureAssets.Projectile[Type];
             float x = Projectile.localAI[0] / 100;
             float opacity = (float)-Math.Pow((2 * x - 1), 2) + 1;

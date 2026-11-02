@@ -97,7 +97,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.HiveMind
                 if (NPC.ai[1] == (float)P2States.I_OffscreenDash1 && NPC.ai[0] < 50)
                 {
                     Player target = Main.player[NPC.target];
-                    Asset<Texture2D> line = TextureAssets.Extra[178];
+                    Asset<Texture2D> line = TextureAssets.Extra[ExtrasID.FairyQueenLance];
 
                     float opacity = MathHelper.Lerp(0, 1, NPC.ai[0] / 90);
                     Main.EntitySpriteDraw(line.Value, NPC.Center - Main.screenPosition, null, Color.Lime * opacity, NPC.DirectionTo(target.Center).ToRotation(), new Vector2(0, line.Height() * 0.5f), new Vector2(0.5f, NPC.scale * 8), SpriteEffects.None);

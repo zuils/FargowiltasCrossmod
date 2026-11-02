@@ -62,7 +62,7 @@ public class ArsenalCrate : ModProjectile
 
         for (int i = 0; i < 25; i++)
         {
-            Dust spark = Dust.NewDustPerfect(Projectile.Center + Main.rand.NextVector2Circular(20f, 20f), 182);
+            Dust spark = Dust.NewDustPerfect(Projectile.Center + Main.rand.NextVector2Circular(20f, 20f), DustID.TheDestroyer);
             spark.velocity = Main.rand.NextVector2Circular(16f, 10f);
             spark.scale = Main.rand.NextFloat(0.75f, 1.1f);
             spark.noGravity = true;

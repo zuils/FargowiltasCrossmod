@@ -632,7 +632,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.SlimeGod
                     {
                         Color newColor = (Main.rand.NextBool() ? Color.Lavender : Color.Crimson);
                         newColor.A = 150;
-                        Dust.NewDust(NPC.position, NPC.width, NPC.height, 4, 0f, 0f, NPC.alpha, newColor);
+                        Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.TintableDust, 0f, 0f, NPC.alpha, newColor);
                     }
 
                     NPC.velocity *= 0.97f;
@@ -655,7 +655,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.SlimeGod
                     {
                         Color newColor2 = (Main.rand.NextBool() ? Color.Lavender : Color.Crimson);
                         newColor2.A = 150;
-                        int num = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, 4, 0f, 0f, NPC.alpha, newColor2, 2f);
+                        int num = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, DustID.TintableDust, 0f, 0f, NPC.alpha, newColor2, 2f);
                         Main.dust[num].velocity *= 3f;
                         if (Main.rand.NextBool(2))
                         {
@@ -668,10 +668,10 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.SlimeGod
                     {
                         Color newColor3 = (Main.rand.NextBool() ? Color.Lavender : Color.Crimson);
                         newColor3.A = 150;
-                        int num2 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, 4, 0f, 0f, NPC.alpha, newColor3, 3f);
+                        int num2 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, DustID.TintableDust, 0f, 0f, NPC.alpha, newColor3, 3f);
                         Main.dust[num2].noGravity = true;
                         Main.dust[num2].velocity *= 5f;
-                        num2 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, 4, 0f, 0f, NPC.alpha, newColor3, 2f);
+                        num2 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, DustID.TintableDust, 0f, 0f, NPC.alpha, newColor3, 2f);
                         Main.dust[num2].velocity *= 2f;
                     }
 

@@ -102,7 +102,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.ExoMechs.Projectiles
                 float energyLengthInterpolant = Main.rand.NextFloat();
                 float perpendicularDirection = Main.rand.NextFromList(-1f, 1f);
                 Vector2 energySpawnPosition = Projectile.Center + Projectile.velocity * energyLengthInterpolant * LaserbeamLength + perpendicular * perpendicularDirection * LaserWidthFunction(0.25f) * 0.7f;
-                Dust energy = Dust.NewDustPerfect(energySpawnPosition, 261, perpendicular * perpendicularDirection * Main.rand.NextFloat(1f, 3f));
+                Dust energy = Dust.NewDustPerfect(energySpawnPosition, DustID.AncientLight, perpendicular * perpendicularDirection * Main.rand.NextFloat(1f, 3f));
                 energy.noGravity = true;
                 energy.color = Color.Wheat;
             }

@@ -35,11 +35,11 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.SkeletronPrime
             }
             for (int num906 = 0; num906 < 20; num906++)
             {
-                int num907 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 6, 0f, 0f, 100, default(Color), 3.5f);
+                int num907 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Torch, 0f, 0f, 100, default(Color), 3.5f);
                 Main.dust[num907].noGravity = true;
                 Dust dust2 = Main.dust[num907];
                 dust2.velocity *= 7f;
-                num907 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 6, 0f, 0f, 100, default(Color), 1.5f);
+                num907 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Torch, 0f, 0f, 100, default(Color), 1.5f);
                 dust2 = Main.dust[num907];
                 dust2.velocity *= 3f;
             }
@@ -102,7 +102,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.SkeletronPrime
                 }
                 if (Main.rand.Next(2) == 0)
                 {
-                    int num16 = Dust.NewDust(new Vector2(Projectile.position.X + 3f + num14, Projectile.position.Y + 3f + num15) - Projectile.velocity * 0.5f, Projectile.width - 8, Projectile.height - 8, 6, 0f, 0f, 100);
+                    int num16 = Dust.NewDust(new Vector2(Projectile.position.X + 3f + num14, Projectile.position.Y + 3f + num15) - Projectile.velocity * 0.5f, Projectile.width - 8, Projectile.height - 8, DustID.Torch, 0f, 0f, 100);
                     Main.dust[num16].scale *= 1.4f + (float)Main.rand.Next(10) * 0.1f;
                     Main.dust[num16].velocity *= 0.2f;
                     Main.dust[num16].noGravity = true;
@@ -125,7 +125,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.SkeletronPrime
                 }
                 if (Main.rand.Next(2) == 0)
                 {
-                    int num17 = Dust.NewDust(new Vector2(Projectile.position.X + 3f + num14, Projectile.position.Y + 3f + num15) - Projectile.velocity * 0.5f, Projectile.width - 8, Projectile.height - 8, 31, 0f, 0f, 100, default(Color), 0.5f);
+                    int num17 = Dust.NewDust(new Vector2(Projectile.position.X + 3f + num14, Projectile.position.Y + 3f + num15) - Projectile.velocity * 0.5f, Projectile.width - 8, Projectile.height - 8, DustID.Smoke, 0f, 0f, 100, default(Color), 0.5f);
                     Main.dust[num17].fadeIn = 0.5f + (float)Main.rand.Next(5) * 0.1f;
                     Main.dust[num17].velocity *= 0.05f;
                 }

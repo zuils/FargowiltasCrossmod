@@ -222,7 +222,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.ExoMechs.ComboAttacks
                 }
 
                 // Create dust.
-                Dust energy = Dust.NewDustPerfect(cannonEnd, 182);
+                Dust energy = Dust.NewDustPerfect(cannonEnd, DustID.TheDestroyer);
                 energy.velocity = handNPC.SafeDirectionTo(cannonEnd).RotatedBy(MathHelper.PiOver2) * Main.rand.NextFloatDirection() * 6f + handNPC.velocity;
                 energy.noGravity = true;
 

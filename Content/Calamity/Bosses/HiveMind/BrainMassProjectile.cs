@@ -140,7 +140,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.HiveMind
                 Timer = 1f;
                 SoundEngine.PlaySound(SoundID.NPCHit18 with { Volume = 0.5f, PitchVariance = 0.2f }, Projectile.position);
             }
-            else if (Timer == 1f && Main.netMode != 1)
+            else if (Timer == 1f && Main.netMode != NetmodeID.MultiplayerClient)
             {
                 int num13 = -1;
                 float num14 = 2000f;

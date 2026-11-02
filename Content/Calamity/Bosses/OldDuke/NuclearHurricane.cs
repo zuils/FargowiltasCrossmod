@@ -126,7 +126,7 @@ public class NuclearHurricane : ModProjectile
             // Offsets based on height, accounting for the shape of the hurricane is now. Now offset based on the cylinder angle.
             spawnPosition.X += MathF.Cos(cylinderAngle) * Projectile.width * Projectile.scale * horizontalSquishFactor * 0.54f;
 
-            Dust energy = Dust.NewDustPerfect(spawnPosition, 267);
+            Dust energy = Dust.NewDustPerfect(spawnPosition, DustID.RainbowMk2);
             energy.color = Color.White;
             energy.velocity = new Vector2(horizontalOffsetWaveDerivative * 25f, -10f) * Projectile.scale;
             energy.scale *= Main.rand.NextFloat(0.6f, 0.925f) * Projectile.scale;

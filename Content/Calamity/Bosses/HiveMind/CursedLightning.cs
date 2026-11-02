@@ -56,7 +56,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.HiveMind
         {
             //copy pasted vanilla code for drawing lightning
             Vector2 end = Projectile.position + new Vector2(Projectile.width, Projectile.height) / 2f + Vector2.UnitY * Projectile.gfxOffY - Main.screenPosition;
-            Texture2D value103 = TextureAssets.Extra[33].Value;
+            Texture2D value103 = TextureAssets.Extra[ExtrasID.CultistLightingArc].Value;
             Projectile.GetAlpha(lightColor);
             Vector2 vector96 = new Vector2(Projectile.scale) / 2f;
             for (int num387 = 0; num387 < 3; num387++)

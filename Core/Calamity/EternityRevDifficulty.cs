@@ -57,7 +57,7 @@ namespace FargowiltasCrossmod.Core.Calamity
             }
         }
 
-        private Asset<Texture2D> _texture;
+        private new Asset<Texture2D> _texture;
         public override Asset<Texture2D> Texture
         {
             get

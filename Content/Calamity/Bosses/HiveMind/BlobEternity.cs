@@ -91,7 +91,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.HiveMind
                 if (NPC.HasValidTarget)
                 {
                     Player target = Main.player[NPC.target];
-                    Asset<Texture2D> line = TextureAssets.Extra[178];
+                    Asset<Texture2D> line = TextureAssets.Extra[ExtrasID.FairyQueenLance];
 
                     float opacity = 0;
                     if (NPC.localAI[1] >= 420f)
@@ -197,7 +197,6 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.HiveMind
 
             NPC.TargetClosest(true);
 
-            float relocateSpeed = 0.8f;
             Vector2 randomLocationVector = new Vector2(NPC.ai[0] * 16f + 8f, NPC.ai[1] * 16f + 8f);
             float targetX = Main.player[NPC.target].position.X + (Main.player[NPC.target].width / 2) - (NPC.width / 2) - randomLocationVector.X;
             float targetY = Main.player[NPC.target].position.Y + (Main.player[NPC.target].height / 2) - (NPC.height / 2) - randomLocationVector.Y;

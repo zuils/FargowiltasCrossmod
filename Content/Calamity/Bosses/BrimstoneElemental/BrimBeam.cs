@@ -58,7 +58,6 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.BrimstoneElemental
         VertexStrip TrailDrawer = new VertexStrip();
         public Color TrailColorFunction(float completionRatio)
         {
-            float opacity = 1;
             return Color.Lerp(Color.Red, Color.Black, 0);
         }
 

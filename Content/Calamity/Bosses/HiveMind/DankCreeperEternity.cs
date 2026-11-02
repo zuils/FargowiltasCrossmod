@@ -125,7 +125,6 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.HiveMind
                 if (otherNPC.TypeAlive(NPC.type) && otherNPC.Distance(NPC.Center) < Math.Max(NPC.width, NPC.height))
                     NPC.velocity -= 0.8f * NPC.SafeDirectionTo(otherNPC.Center, Vector2.Zero);
             }
-            float maxDif = MathF.PI * 0.3f;
             return false;
         }
         

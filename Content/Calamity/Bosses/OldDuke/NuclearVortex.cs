@@ -55,7 +55,7 @@ public class NuclearVortex : ModProjectile
             {
                 Vector2 fireSpawnPosition = Projectile.Center + Main.rand.NextVector2Circular(Projectile.width, Projectile.height) * Projectile.scale * 0.45f;
                 Vector2 fireVelocity = Projectile.SafeDirectionTo(fireSpawnPosition).RotatedBy(-MathHelper.PiOver2) * 9f;
-                Dust fire = Dust.NewDustPerfect(fireSpawnPosition, 261, fireVelocity);
+                Dust fire = Dust.NewDustPerfect(fireSpawnPosition, DustID.AncientLight, fireVelocity);
                 fire.scale = Main.rand.NextFloat(0.9f, 1.45f);
                 fire.noGravity = true;
                 fire.color = Color.YellowGreen;

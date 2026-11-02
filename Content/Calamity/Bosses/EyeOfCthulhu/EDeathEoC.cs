@@ -131,7 +131,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.EyeOfCthulhu
                     Vector2 val15 = NPC.Center + val14 * 10f;
                     if (DLCUtils.HostCheck)
                     {
-                        int num45 = NPC.NewNPC(NPC.GetSource_FromAI(null), (int)val15.X, (int)val15.Y, 5, 0, 0f, 0f, 0f, 0f, 255);
+                        int num45 = NPC.NewNPC(NPC.GetSource_FromAI(null), (int)val15.X, (int)val15.Y, NPCID.ServantofCthulhu, 0, 0f, 0f, 0f, 0f, 255);
                         Main.npc[num45].velocity.X = val14.X;
                         Main.npc[num45].velocity.Y = val14.Y;
                         if (Main.netMode == NetmodeID.Server && num45 < Main.maxNPCs)

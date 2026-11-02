@@ -105,7 +105,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.ExoMechs.Projectiles
 
             if (LifetimeRatio <= 0.87f)
             {
-                Dust electricity = Dust.NewDustPerfect(Projectile.Center + Main.rand.NextVector2CircularEdge(Projectile.width, Projectile.height) * Projectile.scale * 0.44f, 267);
+                Dust electricity = Dust.NewDustPerfect(Projectile.Center + Main.rand.NextVector2CircularEdge(Projectile.width, Projectile.height) * Projectile.scale * 0.44f, DustID.RainbowMk2);
                 electricity.color = Main.hslToRgb(Main.rand.NextFloat(0.524f, 0.61f), 1f, 0.6f);
                 electricity.scale = Main.rand.NextFloat(0.5f, 1f);
                 electricity.velocity = Projectile.SafeDirectionTo(electricity.position).RotatedBy(Main.rand.NextFromList(-1f, 1f) * MathHelper.PiOver4) / electricity.scale * 2f + Projectile.velocity;

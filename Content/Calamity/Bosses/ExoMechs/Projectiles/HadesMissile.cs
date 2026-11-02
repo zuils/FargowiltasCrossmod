@@ -161,7 +161,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.ExoMechs.Projectiles
 
             for (int i = 0; i < 20; i++)
             {
-                Dust fire = Dust.NewDustPerfect(Projectile.Center + Main.rand.NextVector2Circular(20f, 20f), 6);
+                Dust fire = Dust.NewDustPerfect(Projectile.Center + Main.rand.NextVector2Circular(20f, 20f), DustID.Torch);
                 fire.fadeIn = 1f;
                 fire.noGravity = true;
                 fire.velocity = Main.rand.NextVector2Circular(4f, 4f);

@@ -47,7 +47,7 @@ public class FallingVomitGore : ModProjectile
         if (Main.rand.NextBool(3) && Projectile.velocity.Length() >= 9f)
         {
             Vector2 dustSpawnPosition = Projectile.Center + Main.rand.NextVector2CircularEdge(Projectile.width, Projectile.height) * 0.5f;
-            Dust nuclear = Dust.NewDustPerfect(dustSpawnPosition, 261, Main.rand.NextVector2Circular(3f, 3f));
+            Dust nuclear = Dust.NewDustPerfect(dustSpawnPosition, DustID.AncientLight, Main.rand.NextVector2Circular(3f, 3f));
             nuclear.color = new Color(141, 255, 9);
             nuclear.scale = Main.rand.NextFloat(0.6f, 1f);
             nuclear.noGravity = true;

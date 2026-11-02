@@ -212,7 +212,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.ExoMechs.Hades
                     for (int i = 0; i < 3; i++)
                     {
                         Vector2 sparkVelocity = burstDirection.RotatedByRandom(0.51f) * Main.rand.NextFloat(4f, 11f);
-                        Dust spark = Dust.NewDustPerfect(behaviorOverride.TurretPosition, 264, sparkVelocity);
+                        Dust spark = Dust.NewDustPerfect(behaviorOverride.TurretPosition, DustID.PortalBoltTrail, sparkVelocity);
                         spark.color = Color.Lerp(Color.Yellow, Color.Crimson, Main.rand.NextFloat());
                         spark.scale = 1.35f;
                         spark.noLight = true;

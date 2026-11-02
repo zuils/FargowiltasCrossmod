@@ -40,7 +40,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.BrimstoneElemental
         public override bool PreDraw(ref Color lightColor)
         {
             Asset<Texture2D> rock = TextureAssets.Projectile[Type];
-            Asset<Texture2D> line = TextureAssets.Extra[178];
+            Asset<Texture2D> line = TextureAssets.Extra[ExtrasID.FairyQueenLance];
 
             float opacity = 0;
             if (Projectile.timeLeft > 270)

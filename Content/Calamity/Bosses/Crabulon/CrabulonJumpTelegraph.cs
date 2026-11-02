@@ -65,7 +65,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.Crabulon
         }
         public override bool PreDraw(ref Color lightColor)
         {
-            Asset<Texture2D> line = TextureAssets.Extra[178];
+            Asset<Texture2D> line = TextureAssets.Extra[ExtrasID.FairyQueenLance];
 
             float opacity = Projectile.Opacity;
             Main.EntitySpriteDraw(line.Value, Projectile.Center - Main.screenPosition, null, Color.DarkCyan * opacity, Projectile.velocity.ToRotation(), new Vector2(0, line.Height() * 0.5f), new Vector2(0.4f, Projectile.scale * 30), SpriteEffects.None);

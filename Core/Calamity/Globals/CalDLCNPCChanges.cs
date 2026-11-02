@@ -1491,8 +1491,8 @@ namespace FargowiltasCrossmod.Core.Calamity.Globals
                     }
                 }
 
-                if (Main.netMode == 2)
-                    NetMessage.SendData(54, -1, -1, null, npc.whoAmI);
+                if (Main.netMode == NetmodeID.Server)
+                    NetMessage.SendData(MessageID.NPCBuffs, -1, -1, null, npc.whoAmI);
             }
             //if (BossRushEvent.BossRushActive)
             //{

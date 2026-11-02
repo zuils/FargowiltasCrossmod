@@ -142,7 +142,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.ExoMechs.Ares
                     SmallSmokeParticle gas = new(plasmaSpawnPosition, handDirection.RotatedByRandom(0.4f) * Main.rand.NextFloat(3f, 70f), gasColor, Color.YellowGreen with { A = 0 }, 2f, 120f);
                     GeneralParticleHandler.SpawnParticle(gas);
 
-                    Dust plasma = Dust.NewDustPerfect(plasmaSpawnPosition, 107, handDirection.RotatedByRandom(0.5f) * Main.rand.NextFloat(2f, 40f));
+                    Dust plasma = Dust.NewDustPerfect(plasmaSpawnPosition, DustID.Terra, handDirection.RotatedByRandom(0.5f) * Main.rand.NextFloat(2f, 40f));
                     plasma.scale = 1.2f;
                     plasma.noGravity = true;
                 }

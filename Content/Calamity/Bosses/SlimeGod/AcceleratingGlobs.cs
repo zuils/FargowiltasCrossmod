@@ -3,6 +3,7 @@ using CalamityMod.Projectiles.Boss;
 using FargowiltasCrossmod.Core;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace FargowiltasCrossmod.Content.Calamity.Bosses.SlimeGod
@@ -32,7 +33,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Bosses.SlimeGod
             {
                 Color crimson = var == 0 ? Color.Crimson : Color.Lavender;
                 crimson.A = 150;
-                int num2 = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 4, 0f, 0f, projectile.alpha, crimson);
+                int num2 = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, DustID.TintableDust, 0f, 0f, projectile.alpha, crimson);
                 Main.dust[num2].noGravity = true;
             }
 

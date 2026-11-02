@@ -37,8 +37,6 @@ using FargowiltasSouls.Content.Bosses.DeviBoss;
 using FargowiltasSouls.Content.Bosses.BanishedBaron;
 using FargowiltasSouls.Content.Bosses.Lifelight;
 using FargowiltasSouls.Content.Bosses.Champions.Cosmos;
-using CalamityMod.Items.Tools;
-using CalamityMod.Items.Weapons.Typeless;
 
 namespace FargowiltasCrossmod.Core.Calamity
 {
